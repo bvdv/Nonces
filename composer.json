@@ -1,0 +1,27 @@
+{
+  "name":         "bvdv/nonces",
+  "description":  "OOP package for WordPress nonces.",
+  "type":         "package",
+  "keywords":     [
+    "wordpress nonce"
+  ],
+  "license":      "MIT",
+  "authors":      [
+    {
+      "name":  "Danil",
+      "email": "bvdv2012@gmail.com"
+    }
+  ],
+  "require":      {
+    "php": ">=7.0"
+  },
+  "require-dev":  {
+    "phpunit/phpunit": "~7.0",
+    "inpsyde/php-coding-standards": "~0.13.1"
+  },
+  "autoload":     {
+    "psr-4": {
+      "Bvdv\\Nonces\\": "src/"
+    }
+  }
+}
