@@ -1,6 +1,6 @@
 # Nonces
 
-OOP package for WordPress nonces.
+### OOP package for WordPress nonces.
 
 
 Code Style according to https://github.com/inpsyde/php-coding-standards
@@ -16,17 +16,17 @@ Create WpNonce class object:
 
 To generate the nonce use createNonce() method:
 
-$nonce = $wpNonceObj->createNonce();
+```$nonce = $wpNonceObj->createNonce();```
 
 Create url with nonce parameter:
 
-$url = $wpNonceObj->createNonceUrl( 'www.github.com' );
+```$url = $wpNonceObj->createNonceUrl( 'www.github.com' );```
 
 Create nonce field form:
 
-$fieldForm = $wpNonceObj->createNonceField();
+```$fieldForm = $wpNonceObj->createNonceField();```
 
 Nonce validation:
 
-$isValid = $wpNonceObj->validateNonce($nonce);
+```$isValid = $wpNonceObj->validateNonce($nonce);```
 
