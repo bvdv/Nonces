@@ -8,11 +8,11 @@ Code Style according to https://github.com/inpsyde/php-coding-standards
 was checked with parameters: phpcs.bat --standard="Inpsyde" ..\bvdv\nonces\src
 
 
-Usage
+### Usage
 
 Create WpNonce class object:
 
-$wpNonceObj = new WpNonce( 'actionName', 'nonceParameterName' );
+```$wpNonceObj = new WpNonce( 'actionName', 'nonceParameterName' );```
 
 To generate the nonce use createNonce() method:
 
