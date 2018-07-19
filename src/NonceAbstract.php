@@ -39,7 +39,6 @@ abstract class NonceAbstract implements NonceInterface
     {
         $this->setAction($paramAction);
         $this->setName($paramName);
-        //$this->setNonce(null);
     }
 
     /**
