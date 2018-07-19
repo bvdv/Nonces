@@ -37,8 +37,8 @@ abstract class NonceAbstract implements NonceInterface
      */
     public function __construct($paramAction, $paramName = '_wpnonce')
     {
-        $this->setAction($paramAction);
-        $this->setName($paramName);
+        $this->changeAction($paramAction);
+        $this->changeName($paramName);
     }
 
     /**
@@ -46,7 +46,7 @@ abstract class NonceAbstract implements NonceInterface
      *
      * @return string|null
      */
-    public function getAction()
+    public function action()
     {
         return $this->action;
     }
@@ -57,10 +57,10 @@ abstract class NonceAbstract implements NonceInterface
      * @param string $paramAction
      * @return string|null $action
      */
-    public function setAction(string $paramAction)
+    public function changeAction(string $paramAction)
     {
         $this->action = $paramAction;
-        return $this->getAction();
+        return $this->action();
     }
 
     /**
@@ -68,7 +68,7 @@ abstract class NonceAbstract implements NonceInterface
      *
      * @return string|null $name
      */
-    public function getName()
+    public function name()
     {
         return $this->name;
     }
@@ -79,10 +79,10 @@ abstract class NonceAbstract implements NonceInterface
      * @param string $paramName
      * @return string|null $name
      */
-    public function setName(string $paramName)
+    public function changeName(string $paramName)
     {
         $this->name = $paramName;
-        return $this->getName();
+        return $this->name();
     }
 
     /**
@@ -90,7 +90,7 @@ abstract class NonceAbstract implements NonceInterface
      *
      * @return string|null $nonce.
      */
-    public function getNonce()
+    public function nonce()
     {
         return $this->nonce;
     }
@@ -101,9 +101,9 @@ abstract class NonceAbstract implements NonceInterface
      * @param string $paramNonce
      * @return string|null $nonce
      */
-    public function setNonce(string $paramNonce)
+    public function changeNonce(string $paramNonce)
     {
         $this->nonce = $paramNonce;
-        return $this->getNonce();
+        return $this->nonce();
     }
 }

@@ -27,8 +27,8 @@ class WpNonce extends NonceAbstract
      */
     public function createWpNonce()
     {
-        $this->setNonce(wp_create_nonce($this->getAction()));
-        return $this->getNonce();
+        $this->changeNonce(wp_create_nonce($this->action()));
+        return $this->nonce();
     }
 
     /**
@@ -41,8 +41,8 @@ class WpNonce extends NonceAbstract
     {
         $this->createWpNonce();
 
-        $name = $this->getName();
-        $action = $this->getAction();
+        $name = $this->name();
+        $action = $this->action();
         $actionUrl = str_replace('&amp;', '&', $paramActionUrl);
 
         return wp_nonce_url($actionUrl, $action, $name);
@@ -55,7 +55,7 @@ class WpNonce extends NonceAbstract
      */
     private function validate()
     {
-        $isValid = wp_verify_nonce($this->getNonce(), $this->getAction());
+        $isValid = wp_verify_nonce($this->nonce(), $this->action());
         if (false === $isValid) {
             return $isValid;
         }
@@ -70,9 +70,9 @@ class WpNonce extends NonceAbstract
     public function validateRequest()
     {
         $isValid = false;
-        if (isset($_REQUEST[ $this->getName() ])) {
-            $nonceReceived = sanitize_text_field(wp_unslash($_REQUEST[ $this->getName() ]));
-            $this->setNonce($nonceReceived);
+        if (isset($_REQUEST[ $this->name() ])) {
+            $nonceReceived = sanitize_text_field(wp_unslash($_REQUEST[ $this->name() ]));
+            $this->changeNonce($nonceReceived);
             $isValid = $this->validate();
         }
         return $isValid;
@@ -88,7 +88,7 @@ class WpNonce extends NonceAbstract
     {
         $isValid = false;
 
-        $this->setNonce($paramNonce);
+        $this->changeNonce($paramNonce);
         $isValid = $this->validate();
         return $isValid;
     }
@@ -103,9 +103,9 @@ class WpNonce extends NonceAbstract
     public function createNonceField(bool $paramReferer = true, bool $paramEcho = true)
     {
         $this->createWpNonce();
-        $name = $this->getName();
-        $action = $this->getAction();
-        $nonce = $this->getNonce();
+        $name = $this->name();
+        $action = $this->action();
+        $nonce = $this->nonce();
         $name = esc_attr($name);
 
         return wp_nonce_field($action, $name, $paramReferer, $paramEcho);
