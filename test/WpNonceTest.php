@@ -127,5 +127,40 @@ class WpNonceTest extends TestCase
         // Getting and cheking the nonce value.
         $this->assertNotEquals( $nonceCreated, $this->testWpNonceObj1->nonce() );
         $this->assertSame( 'newNonce', $this->testWpNonceObj1->nonce() );
+    }
+
+        public function testValidateNonce() {
+
+        // Check validating method.
+        $isValid = $this->testWpNonceObj1->validateNonce( $this->testNonce );
+        $this->assertTrue( $isValid );
+
+        // Injecting wrong value in the nonce.
+        $isValid = $this->testWpNonceObj1->validateNonce( $this->testNonce . 'failure' );
+        
+        // Check failure on validating.
+        $this->assertFalse( $isValid );
+    }
+
+    /**
+    * Test the validateNonce method used for the validation of the nonce through the $_REQUEST.
+    */
+    public function testValidateRequest() {
+
+        $testName = '_wpnonce';
+
+        // Build the $_REQUEST
+        $_REQUEST[ $testName ] = $this->testNonce;
+
+        // Checking validation method.
+        $isValid = $this->testWpNonceObj1->validateRequest();
+        $this->assertTrue( $isValid );
+
+        // Injecting wrong value in the nonce.
+        $_REQUEST[ $testName ] = $this->testNonce . 'failure';
+
+        // Check failure on validating.
+        $isValid = $this->testWpNonceObj1->validateRequest();
+        $this->assertFalse( $isValid );
     }	
 }
