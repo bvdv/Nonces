@@ -162,4 +162,16 @@ class WpNonceTest extends TestCase
         $isValid = $this->testWpNonceObj1->validateRequest();
         $this->assertFalse($isValid);
     }
+
+    public function testCreateNonceUrl()
+    {
+        // Create the nonce and build the url.
+        $urlCreated = $this->testWpNonceObj1->createWpNonceUrl('http://www.github.com');
+
+        // Building the expected url.
+        $urlExpected = 'http://www.github.com?_wpnonce='. $this->testNonce;
+
+        // Checking result.
+        $this->assertSame($urlCreated, $urlExpected);
+    }
 }
