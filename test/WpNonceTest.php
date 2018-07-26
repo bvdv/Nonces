@@ -102,9 +102,6 @@ class WpNonceTest extends TestCase
     {
         $testObj = $this->testWpNonceObj1;
 
-        // The constructor sets nonce property to null. Checking null value.
-        $this->assertNull($testObj->nonce());
-
         // Generating the nonce.
         $nonceCreated = $testObj->createWpNonce();
 

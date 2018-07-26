@@ -10,10 +10,10 @@ class WpNonce extends NonceAbstract
 {
 
     /**
-     * NonceGenerator constructor.
+     * Wp Nonce constructor.
      *
      * @param $paramAction
-     * @param string|null $paramName
+     * @param string $paramName
      */
     public function __construct($paramAction, $paramName = '_wpnonce')
     {
@@ -21,7 +21,7 @@ class WpNonce extends NonceAbstract
     }
 
     /**
-     * Generate nonce string
+     * Create nonce string
      *
      * @return string
      */
@@ -32,7 +32,7 @@ class WpNonce extends NonceAbstract
     }
 
     /**
-     * Generate url with nonce value parameter
+     * Create url with nonce value parameter
      *
      * @param $paramActionUrl
      * @return mixed|null
@@ -51,7 +51,7 @@ class WpNonce extends NonceAbstract
     /**
      * Validate the nonce.
      *
-     * @return    bool $isValid False if the nonce is invalid. Otherwise, returns true.
+     * @return bool False if the nonce is invalid. Otherwise, returns true.
      */
     private function validate(): bool
     {
@@ -90,13 +90,13 @@ class WpNonce extends NonceAbstract
     }
 
     /**
-     * Generate the nonce field html tags
+     * Create the nonce field html tags form
      *
      * @param bool $paramReferer
      * @param bool $paramEcho
      * @return string
      */
-    public function createNonceField(bool $paramReferer = true, bool $paramEcho = true): bool
+    public function createNonceField(bool $paramReferer = true, bool $paramEcho = true): string
     {
         $this->createWpNonce();
         $name = $this->name();
