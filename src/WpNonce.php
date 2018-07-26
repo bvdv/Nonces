@@ -55,11 +55,7 @@ class WpNonce extends NonceAbstract
      */
     private function validate(): bool
     {
-        $isValid = wp_verify_nonce($this->nonce(), $this->action());
-        if (false === $isValid) {
-            return $isValid;
-        }
-            return true;
+        return (bool) wp_verify_nonce($this->nonce(), $this->action());
     }
 
     /**
