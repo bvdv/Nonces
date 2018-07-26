@@ -39,13 +39,9 @@ class WpNonce extends NonceAbstract
      */
     public function createWpNonceUrl($paramActionUrl)
     {
-        $this->createWpNonce();
-
-        $name = $this->name();
-        $action = $this->action();
         $actionUrl = str_replace('&amp;', '&', $paramActionUrl);
 
-        return wp_nonce_url($actionUrl, $action, $name);
+        return esc_url_raw(add_query_arg($this->action(), $this->nonce(), $actionUrl));
     }
 
     /**
