@@ -23,9 +23,9 @@ class WpNonce extends NonceAbstract
     /**
      * Generate nonce string
      *
-     * @return string|null
+     * @return string
      */
-    public function createWpNonce()
+    public function createWpNonce(): string
     {
         $this->changeNonce(wp_create_nonce($this->action()));
         return $this->nonce();
@@ -51,9 +51,9 @@ class WpNonce extends NonceAbstract
     /**
      * Validate the nonce.
      *
-     * @return    boolean|null $isValid False if the nonce is invalid. Otherwise, returns true.
+     * @return    bool $isValid False if the nonce is invalid. Otherwise, returns true.
      */
-    private function validate()
+    private function validate(): bool
     {
         $isValid = wp_verify_nonce($this->nonce(), $this->action());
         if (false === $isValid) {
@@ -65,9 +65,9 @@ class WpNonce extends NonceAbstract
     /**
      * Validate the nonce from the request.
      *
-     * @return bool|null
+     * @return bool
      */
-    public function validateRequest()
+    public function validateRequest(): bool
     {
         $isValid = false;
         if (isset($_REQUEST[ $this->name() ])) {
@@ -82,9 +82,9 @@ class WpNonce extends NonceAbstract
      * Validate nonce
      *
      * @param $paramNonce
-     * @return bool|null
+     * @return bool
      */
-    public function validateNonce(string $paramNonce)
+    public function validateNonce(string $paramNonce): bool
     {
         $isValid = false;
 
@@ -98,9 +98,9 @@ class WpNonce extends NonceAbstract
      *
      * @param bool $paramReferer
      * @param bool $paramEcho
-     * @return string|null
+     * @return string
      */
-    public function createNonceField(bool $paramReferer = true, bool $paramEcho = true)
+    public function createNonceField(bool $paramReferer = true, bool $paramEcho = true): bool
     {
         $this->createWpNonce();
         $name = $this->name();

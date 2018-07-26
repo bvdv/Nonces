@@ -44,9 +44,9 @@ abstract class NonceAbstract implements NonceInterface
     /**
      * Get action property.
      *
-     * @return string|null
+     * @return string
      */
-    public function action()
+    public function action(): string
     {
         return $this->action;
     }
@@ -55,9 +55,9 @@ abstract class NonceAbstract implements NonceInterface
      * Set action property.
      *
      * @param string $paramAction
-     * @return string|null $action
+     * @return string $action
      */
-    public function changeAction(string $paramAction)
+    public function changeAction(string $paramAction): string
     {
         $this->action = $paramAction;
         return $this->action();
@@ -66,9 +66,9 @@ abstract class NonceAbstract implements NonceInterface
     /**
      * Get request name property.
      *
-     * @return string|null $name
+     * @return string $name
      */
-    public function name()
+    public function name(): string
     {
         return $this->name;
     }
@@ -77,9 +77,9 @@ abstract class NonceAbstract implements NonceInterface
      * Set request name property.
      *
      * @param string $paramName
-     * @return string|null $name
+     * @return string $name
      */
-    public function changeName(string $paramName)
+    public function changeName(string $paramName): string
     {
         $this->name = $paramName;
         return $this->name();
@@ -88,9 +88,9 @@ abstract class NonceAbstract implements NonceInterface
     /**
      * Get nonce property.
      *
-     * @return string|null $nonce.
+     * @return string $nonce.
      */
-    public function nonce()
+    public function nonce(): string
     {
         return $this->nonce;
     }
@@ -99,9 +99,9 @@ abstract class NonceAbstract implements NonceInterface
      * Set nonce property.
      *
      * @param string $paramNonce
-     * @return string|null $nonce
+     * @return string $nonce
      */
-    public function changeNonce(string $paramNonce)
+    public function changeNonce(string $paramNonce): string
     {
         $this->nonce = $paramNonce;
         return $this->nonce();
