@@ -27,18 +27,18 @@ abstract class NonceAbstract implements NonceInterface
      *
      * @var    string $nonce The nonce value.
      */
-    private $nonce;
+    protected $nonce;
 
     /**
      * NonceAbstract constructor.
      *
-     * @param      string|int  $paramAction  The parameter action
-     * @param      string|null  $paramName    The parameter name
+     * @param string  $paramAction  The parameter action
+     * @param string  $paramName    The parameter name
      */
-    public function __construct($paramAction, $paramName = '_wpnonce')
+    public function __construct(string $paramAction, string $paramName)
     {
-        $this->changeAction($paramAction);
-        $this->changeName($paramName);
+        is_string($paramAction) ? $this->changeAction($paramAction) : $this->changeAction('');
+        is_string($paramName) ? $this->changeName($paramName) : $this->changeName('_wpnonce');
     }
 
     /**
@@ -52,7 +52,7 @@ abstract class NonceAbstract implements NonceInterface
     }
 
     /**
-     * Set action property.
+     * Change or set action property.
      *
      * @param string $paramAction
      * @return string $action
@@ -74,9 +74,9 @@ abstract class NonceAbstract implements NonceInterface
     }
 
     /**
-     * Set request name property.
+     * Change or set request name property.
      *
-     * @param string $paramName
+     * @param  string $paramName
      * @return string $name
      */
     public function changeName(string $paramName): string
@@ -96,9 +96,9 @@ abstract class NonceAbstract implements NonceInterface
     }
 
     /**
-     * Set nonce property.
+     * Change or set nonce property.
      *
-     * @param string $paramNonce
+     * @param  string $paramNonce
      * @return string $nonce
      */
     public function changeNonce(string $paramNonce): string
