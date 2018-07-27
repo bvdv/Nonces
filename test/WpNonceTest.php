@@ -169,12 +169,42 @@ class WpNonceTest extends TestCase
     public function testCreateNonceField()
     {
         // Create the form field.
-        $fieldCreated = $this->testWpNonceObj1->createNonceField( false, false );
+        $fieldCreated = $this->testWpNonceObj1->createNonceField(false, false);
 
+        // Building the expected form field.
+        $fieldExpected = '<input type="hidden" id="_wpnonce" 
+        name="_wpnonce" value="' . $this->testNonce . '" />';
+
+        // Checking result.
+        $this->assertSame($fieldCreated, $fieldExpected);
+    }
+
+    public function testCreateNonceFieldRef()
+    {
+        // Create the form field.
+        $fieldCreated = $this->testWpNonceObj1->createNonceField(true, false);
+
+        // Building the expected form field.
+        $fieldExpected = '<input type="hidden" id="_wpnonce" name="_wpnonce" value="' . $this->testNonce . '" />
+        <input type="hidden" name="_wp_http_referer" value="" />';
+
+        // Checking result.
+        $this->assertSame($fieldCreated, $fieldExpected);
+    }
+
+    public function testCreatedNonceFieldEcho()
+    {
         // Building the expected form field.
         $fieldExpected = '<input type="hidden" id="_wpnonce" name="_wpnonce" value="' . $this->testNonce . '" />';
 
+        // Check that the result is printed.
+        $this->expectOutputString($fieldExpected);
+
+        // Generating the form fields. The second parameter defaults to true.
+        $fieldCreated = $this->testWpNonceObj1->createNonceField(false);
+        ;
+
         // Checking result.
-        $this->assertSame( $fieldCreated, $fieldExpected);
+        $this->assertSame($fieldCreated, $fieldExpected);
     }
 }
