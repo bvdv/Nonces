@@ -7,29 +7,29 @@ use PHPUnit\Framework\TestCase;
 class WpNonceTest extends TestCase
 {
     /**
-    * Test action.
-    *
-    * @var    string $testAction The default test action value.
-    */
+     * Test action.
+     *
+     * @var string $testAction The default test action value.
+     */
     private $testAction;
     
     /**
-    * Test nonce.
-    *
-    * @var    string The default test nonce value.
-    */
+     * Test nonce.
+     *
+     * @var string The default test nonce value.
+     */
     private $testNonce;
 
     /**
-    * Test validator.
-    *
-    * @var    object $testWpNonceObj The default test created object.
-    */
+     * Test validator.
+     *
+     * @var object $testWpNonceObj The default test created object.
+     */
     private $testWpNonceObj;
 
     /**
-    * Setting up the test environment.
-    */
+     * Setting up the test environment.
+     */
     protected function setUp()
     {
         $this->testAction = 'action';
@@ -43,8 +43,8 @@ class WpNonceTest extends TestCase
     }
 
     /**
-    * Test the object instance.
-    */
+     * Test the object instance.
+     */
     public function testInstance()
     {
         $this->assertInstanceOf(WpNonce::class, $this->testWpNonceObj2);
@@ -52,8 +52,8 @@ class WpNonceTest extends TestCase
     }
 
     /**
-    * Test the getter and setter for the action property.
-    */
+     * Test the getter and setter for the action property.
+     */
     public function testGetSetAction()
     {
         $testObj = $this->testWpNonceObj2;
@@ -67,8 +67,8 @@ class WpNonceTest extends TestCase
     }
 
     /**
-    * Test the getter and setter for the name property.
-    */
+     * Test the getter and setter for the name property.
+     */
     public function testGetSetName()
     {
         $testObj = $this->testWpNonceObj2;
@@ -82,8 +82,8 @@ class WpNonceTest extends TestCase
     }
 
     /**
-    * Test the getter and setter for the name property when default value in the constructor is used.
-    */
+     * Test the getter and setter for the name property when default value in the constructor is used.
+     */
     public function testDefaultName()
     {
         $testObj = new WpNonce('anotherAction');
@@ -96,16 +96,16 @@ class WpNonceTest extends TestCase
     }
 
     /**
-    * Test the createWpNonce method used for the straight create of the nonce.
-    */
+     * Test the createWpNonce method used for the straight create of the nonce.
+     */
     public function testCreateNonce()
     {
         $this->assertSame($this->testWpNonceObj1->nonce(), $this->testNonce);
     }
 
     /**
-    * Test the getter and setter for the nonce property.
-    */
+     * Test the getter and setter for the nonce property.
+     */
     public function testGetSetNonce()
     {
         // Generating the nonce.
@@ -133,8 +133,8 @@ class WpNonceTest extends TestCase
     }
 
     /**
-    * Test the validateNonce method used for the validation of the nonce through the $_REQUEST.
-    */
+     * Test the validateNonce method used for the validation of the nonce through the $_REQUEST.
+     */
     public function testValidateRequest()
     {
         $testName = '_wpnonce';

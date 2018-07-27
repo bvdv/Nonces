@@ -25,7 +25,7 @@ class WpNonce extends NonceAbstract
     /**
      * Create url with nonce value parameter
      *
-     * @param string $paramActionUrl
+     * @param  string $paramActionUrl
      * @return string
      */
     public function createWpNonceUrl($paramActionUrl): string
@@ -66,7 +66,7 @@ class WpNonce extends NonceAbstract
     /**
      * Validate nonce
      *
-     * @param string $paramNonce Nonce value.
+     * @param  string $paramNonce Nonce value.
      * @return bool
      */
     public function validateNonce(string $paramNonce): bool
@@ -78,8 +78,8 @@ class WpNonce extends NonceAbstract
     /**
      * Create the nonce field html tags form
      *
-     * @param bool $paramReferer Whether to set the referer field for validation.
-     * @param bool $paramEcho    Whether to display or return hidden form field.
+     * @param  bool $paramReferer Whether to set the referer field for validation.
+     * @param  bool $paramEcho    Whether to display or return hidden form field.
      * @return string
      */
     public function createNonceField(bool $paramReferer = true, bool $paramEcho = true): string

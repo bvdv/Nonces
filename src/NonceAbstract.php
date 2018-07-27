@@ -11,29 +11,29 @@ abstract class NonceAbstract implements NonceInterface
     /**
      * Action string.
      *
-     * @var    string $action The nonce action value.
+     * @var string $action The nonce action value.
      */
     private $action;
 
     /**
      * Name of the nonce.
      *
-     * @var    string $name The nonce request name.
+     * @var string $name The nonce request name.
      */
     private $name;
 
     /**
      * Nonce value.
      *
-     * @var    string $nonce The nonce value.
+     * @var string $nonce The nonce value.
      */
     protected $nonce;
 
     /**
      * NonceAbstract constructor.
      *
-     * @param string  $paramAction  The parameter action
-     * @param string  $paramName    The parameter name
+     * @param string $paramAction The parameter action
+     * @param string $paramName   The parameter name
      */
     public function __construct(string $paramAction, string $paramName)
     {
