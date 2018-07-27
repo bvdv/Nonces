@@ -10,17 +10,17 @@ was checked with parameters: phpcs.bat --standard="Inpsyde" ..\bvdv\nonces\src
 
 ### Usage
 
-Create WpNonce class object:
+Create WpNonce class object with nonce:
 
-```$wpNonceObj = new WpNonce( 'actionName', 'nonceParameterName' );```
+```$wpNonceObj = new WpNonce('actionName', 'nonceParameterName' );```
 
-To generate the nonce use createNonce() method:
+Get nonce: 
 
-```$nonce = $wpNonceObj->createNonce();```
+```$wpNonceObj->nonce();```
 
 Create url with nonce parameter:
 
-```$url = $wpNonceObj->createNonceUrl( 'www.github.com' );```
+```$url = $wpNonceObj->createNonceUrl('www.github.com' );```
 
 Create nonce field form:
 
@@ -28,5 +28,9 @@ Create nonce field form:
 
 Nonce validation:
 
-```$isValid = $wpNonceObj->validateNonce($nonce);```
+```$isValid = $wpNonceObj->validateNonce($wpNonceObj->nonce());```
+
+or
+
+```$isValid = $wpNonceObj->validateNonce('some_string');```
 
