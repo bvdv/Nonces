@@ -100,13 +100,7 @@ class WpNonceTest extends TestCase
     */
     public function testCreateNonce()
     {
-        $testObj = $this->testWpNonceObj1;
-
-        // Generating the nonce.
-        $nonceCreated = $testObj->createWpNonce();
-
-        // Check the nonce.
-        $this->assertSame($nonceCreated, $this->testNonce);
+        $this->assertSame($this->testWpNonceObj1->nonce(), $this->testNonce);
     }
 
     /**
@@ -115,7 +109,7 @@ class WpNonceTest extends TestCase
     public function testGetSetNonce()
     {
         // Generating the nonce.
-        $nonceCreated = $this->testWpNonceObj1->createWpNonce();
+        $nonceCreated = $this->testWpNonceObj1->nonce();
         
         // Setting new value for the nonce.
         $this->testWpNonceObj1->changeNonce('newNonce');
@@ -166,7 +160,7 @@ class WpNonceTest extends TestCase
         $urlCreated = $this->testWpNonceObj1->createWpNonceUrl('http://www.github.com');
 
         // Building the expected url.
-        $urlExpected = 'http://www.github.com?_wpnonce='. $this->testNonce;
+        $urlExpected = 'http://www.github.com?active='. $this->testNonce;
 
         // Checking result.
         $this->assertSame($urlCreated, $urlExpected);
