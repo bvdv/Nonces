@@ -165,4 +165,16 @@ class WpNonceTest extends TestCase
         // Checking result.
         $this->assertSame($urlCreated, $urlExpected);
     }
+
+    public function testCreateNonceField()
+    {
+        // Create the form field.
+        $fieldCreated = $this->testWpNonceObj1->createNonceField( false, false );
+
+        // Building the expected form field.
+        $fieldExpected = '<input type="hidden" id="_wpnonce" name="_wpnonce" value="' . $this->testNonce . '" />';
+
+        // Checking result.
+        $this->assertSame( $fieldCreated, $fieldExpected);
+    }
 }
