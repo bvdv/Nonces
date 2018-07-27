@@ -29,6 +29,8 @@ Create nonce field form:
 Nonce validation:
 
 ```$isValid = $wpNonceObj->validateNonce($wpNonceObj->nonce());```
+
 or
+
 ```$isValid = $wpNonceObj->validateNonce('some_string');```
 
