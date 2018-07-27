@@ -54,8 +54,8 @@ abstract class NonceAbstract implements NonceInterface
     /**
      * Change or set action property.
      *
-     * @param string $paramAction
-     * @return string $action
+     * @param  string $paramAction The nonce action value.
+     * @return string $action      Action value
      */
     public function changeAction(string $paramAction): string
     {
@@ -76,7 +76,7 @@ abstract class NonceAbstract implements NonceInterface
     /**
      * Change or set request name property.
      *
-     * @param  string $paramName
+     * @param  string $paramName The nonce name value.
      * @return string $name
      */
     public function changeName(string $paramName): string
@@ -98,7 +98,7 @@ abstract class NonceAbstract implements NonceInterface
     /**
      * Change or set nonce property.
      *
-     * @param  string $paramNonce
+     * @param  string $paramNonce The nonce value to change or set
      * @return string $nonce
      */
     public function changeNonce(string $paramNonce): string

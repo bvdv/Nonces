@@ -200,7 +200,7 @@ class WpNonceTest extends TestCase
         // Check that the result is printed.
         $this->expectOutputString($fieldExpected);
 
-        // Generating the form fields. The second parameter defaults to true.
+        // Create the form fields. The second parameter defaults to true.
         $fieldCreated = $this->testWpNonceObj1->createNonceField(false);
         ;
 
