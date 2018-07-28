@@ -72,6 +72,7 @@ class WpNonce extends NonceAbstract
     public function validateNonce(string $paramNonce): bool
     {
         $this->changeNonce($paramNonce);
+
         return $this->validate();
     }
 

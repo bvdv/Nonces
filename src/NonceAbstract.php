@@ -60,6 +60,7 @@ abstract class NonceAbstract implements NonceInterface
     public function changeAction(string $paramAction): string
     {
         $this->action = $paramAction;
+
         return $this->action();
     }
 
@@ -82,6 +83,7 @@ abstract class NonceAbstract implements NonceInterface
     public function changeName(string $paramName): string
     {
         $this->name = $paramName;
+
         return $this->name();
     }
 
@@ -104,6 +106,7 @@ abstract class NonceAbstract implements NonceInterface
     public function changeNonce(string $paramNonce): string
     {
         $this->nonce = $paramNonce;
+
         return $this->nonce();
     }
 }
