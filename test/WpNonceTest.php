@@ -119,6 +119,9 @@ class WpNonceTest extends TestCase
         $this->assertSame('newNonce', $this->testWpNonceObj1->nonce());
     }
 
+    /**
+     * Test the validateNonce method used for the straight validation of the nonce.
+     */
     public function testValidateNonce()
     {
         // Check validating method.
@@ -133,7 +136,7 @@ class WpNonceTest extends TestCase
     }
 
     /**
-     * Test the validateNonce method used for the validation of the nonce through the $_REQUEST.
+     * Test the validateRequest method used for the validation of the nonce through the $_REQUEST.
      */
     public function testValidateRequest()
     {
@@ -154,6 +157,9 @@ class WpNonceTest extends TestCase
         $this->assertFalse($isValid);
     }
 
+    /**
+     * Test the createWpNonceUrl method to build an url with a nonce.
+     */
     public function testCreateNonceUrl()
     {
         // Create the nonce and build the url.
@@ -166,6 +172,12 @@ class WpNonceTest extends TestCase
         $this->assertSame($urlCreated, $urlExpected);
     }
 
+    /**
+     * Test the createNonceField method to build form field with a nonce parameter.
+     *
+     * referer: false ---> hidden field with refer url value is not added.
+     * echo: false ------> the field is not printed.
+     */
     public function testCreateNonceField()
     {
         // Create the form field.
@@ -179,6 +191,12 @@ class WpNonceTest extends TestCase
         $this->assertSame($fieldCreated, $fieldExpected);
     }
 
+    /**
+     * Test the createNonceField method to build form field with a nonce parameter.
+     *
+     * referer: true ---> hidden field with refer url value is added.
+     * echo: false ------> the fields are not printed.
+     */
     public function testCreateNonceFieldRef()
     {
         // Create the form field.
@@ -192,6 +210,12 @@ class WpNonceTest extends TestCase
         $this->assertSame($fieldCreated, $fieldExpected);
     }
 
+    /**
+     * Test the createNonceField method to build form field with a nonce parameter.
+     *
+     * referer: false ---> hidden field with refer url value is not added.
+     * echo: true ------> the field is printed.
+     */
     public function testCreatedNonceFieldEcho()
     {
         // Building the expected form field.

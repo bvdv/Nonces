@@ -12,8 +12,8 @@ class WpNonce extends NonceAbstract
     /**
      * Wp Nonce constructor.
      *
-     * @param string $paramAction
-     * @param string $paramName
+     * @param string $paramAction The nonce action value.
+     * @param string $paramName   Optional. The nonce request name. Default = '_wpnonce'.
      */
     public function __construct($paramAction, $paramName = '_wpnonce')
     {
@@ -23,10 +23,10 @@ class WpNonce extends NonceAbstract
     }
 
     /**
-     * Create url with nonce value parameter
+     * Create url with nonce value parameter.
      *
-     * @param  string $paramActionUrl
-     * @return string
+     * @param  string $paramActionUrl URL value to set.
+     * @return string URL with nonce action added.
      */
     public function createWpNonceUrl($paramActionUrl): string
     {
@@ -48,7 +48,7 @@ class WpNonce extends NonceAbstract
     /**
      * Validate the nonce from the request.
      *
-     * @return bool
+     * @return bool $isRequestValid Boolean false if the nonce is invalid. Otherwise, returns true.
      */
     public function validateRequest(): bool
     {
@@ -64,10 +64,10 @@ class WpNonce extends NonceAbstract
     }
 
     /**
-     * Validate nonce
+     * Validate nonce.
      *
      * @param  string $paramNonce Nonce value.
-     * @return bool
+     * @return bool Boolean false if the nonce is invalid. Otherwise, returns true.
      */
     public function validateNonce(string $paramNonce): bool
     {
@@ -76,11 +76,11 @@ class WpNonce extends NonceAbstract
     }
 
     /**
-     * Create the nonce field html tags form
+     * Create the nonce field html tags form.
      *
      * @param  bool $paramReferer Whether to set the referer field for validation.
      * @param  bool $paramEcho    Whether to display or return hidden form field.
-     * @return string
+     * @return string The nonce hidden form field.
      */
     public function createNonceField(bool $paramReferer = true, bool $paramEcho = true): string
     {

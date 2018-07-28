@@ -19,7 +19,7 @@ interface NonceInterface
     /**
      * Set the Wp action.
      *
-     * @param string $paramAction The parameter action
+     * @param string $paramAction The parameter action.
      */
     public function changeAction(string $paramAction);
 

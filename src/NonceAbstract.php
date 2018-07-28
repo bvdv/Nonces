@@ -32,8 +32,8 @@ abstract class NonceAbstract implements NonceInterface
     /**
      * NonceAbstract constructor.
      *
-     * @param string $paramAction The parameter action
-     * @param string $paramName   The parameter name
+     * @param string $paramAction The parameter action.
+     * @param string $paramName   The parameter name.
      */
     public function __construct(string $paramAction, string $paramName)
     {
@@ -44,7 +44,7 @@ abstract class NonceAbstract implements NonceInterface
     /**
      * Get action property.
      *
-     * @return string
+     * @return string Action value.
      */
     public function action(): string
     {
@@ -55,7 +55,7 @@ abstract class NonceAbstract implements NonceInterface
      * Change or set action property.
      *
      * @param  string $paramAction The nonce action value.
-     * @return string $action      Action value
+     * @return string $action      Changed action value.
      */
     public function changeAction(string $paramAction): string
     {
@@ -66,7 +66,7 @@ abstract class NonceAbstract implements NonceInterface
     /**
      * Get request name property.
      *
-     * @return string $name
+     * @return string $name The nonce name value.
      */
     public function name(): string
     {
@@ -77,7 +77,7 @@ abstract class NonceAbstract implements NonceInterface
      * Change or set request name property.
      *
      * @param  string $paramName The nonce name value.
-     * @return string $name
+     * @return string $name      Changed name value.
      */
     public function changeName(string $paramName): string
     {
@@ -88,7 +88,7 @@ abstract class NonceAbstract implements NonceInterface
     /**
      * Get nonce property.
      *
-     * @return string $nonce.
+     * @return string $nonce Nonce value.
      */
     public function nonce(): string
     {
@@ -98,8 +98,8 @@ abstract class NonceAbstract implements NonceInterface
     /**
      * Change or set nonce property.
      *
-     * @param  string $paramNonce The nonce value to change or set
-     * @return string $nonce
+     * @param  string $paramNonce The nonce value to change or set.
+     * @return string $nonce      Changed nonce value.
      */
     public function changeNonce(string $paramNonce): string
     {
